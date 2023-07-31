@@ -58,7 +58,7 @@ class InactiveUserAndVehicle {
       console.log("Finished...");
       return;
     } catch (error) {
-      this.execute();
+      console.log(error.message);
     }
   }
 }

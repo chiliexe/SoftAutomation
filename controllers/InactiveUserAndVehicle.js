@@ -2,8 +2,10 @@ const puppeteer = require("puppeteer");
 const Softruck = require("../util/Softruck");
 const MyGoogleSheets = require("../util/MyGoogleSheets");
 
+const docId = "1FzoybRtHtHx-xb17hdbqXjRElN-OOoxB6ihR22DEHhE"
+
 const softruck = new Softruck();
-const myGoogleSheets = new MyGoogleSheets();
+const myGoogleSheets = new MyGoogleSheets(docId);
 
 class InactiveUserAndVehicle {
   /**

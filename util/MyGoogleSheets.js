@@ -7,10 +7,12 @@ const auth = new google.auth.GoogleAuth({
     ],
 });
 
-const docId = "1FzoybRtHtHx-xb17hdbqXjRElN-OOoxB6ihR22DEHhE"
-
 class MyGoogleSheets {
     
+    constructor(docId){
+        this.docId = docId;
+    }
+
     async getSheets(){
         const authClient = await auth.getClient();
         return google.sheets({version: 'v4', auth: authClient})
@@ -20,15 +22,15 @@ class MyGoogleSheets {
         const sheets = await this.getSheets();
 
         return await sheets.spreadsheets.values.get({
-            spreadsheetId: docId,
-            range: "Inativar usuário/veículo"
+            spreadsheetId: this.docId,
+            range: range
         })
     }
 
     async updateDataFromSheets(range, data) {
         const sheets = await this.getSheets();
         await sheets.spreadsheets.values.update({
-            spreadsheetId: docId, range,
+            spreadsheetId: this.docId, range,
             valueInputOption: 'RAW', // Pode ser 'RAW' para texto simples ou 'USER_ENTERED' para usar a formatação da célula
             resource: {
               values: [[data]],

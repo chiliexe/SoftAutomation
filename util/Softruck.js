@@ -75,7 +75,7 @@ class Softruck {
     const el = await page.waitForSelector(this.selector.devices.iccid);
     const iccid = await el.evaluate((el) => el.textContent);
 
-    console.log(iccid);
+    return iccid
   }
 
   async lastReporting(page, plate){

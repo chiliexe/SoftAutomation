@@ -18,8 +18,8 @@ class GetIccid {
 
         await softruck.doLogin(page);
 
-        let start = 25;
-        let end = 41;
+        let start = 151;
+        let end = 247;
         const response = await myGoogleSheets.getDataFromSheets(`pag!A${start}:A${end}`);
         for(const plate of response.data.values){
             if(start == end) break;

@@ -21,6 +21,9 @@ app.get('/softruck/get/iccid', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server Up: /softruck/inactive/user-and-vehicle`)
+  console.log(`
+        Server Up: http://localhost:5500/softruck/get/iccid\n
+        Server Up: http://localhost:5500/softruck/inactive/user-and-vehicle
+  `)
 })
 
